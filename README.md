@@ -1,4 +1,4 @@
-Payssion WooCommerce extension
+Payssion Zencart extension
 =================
 
 <h3>Getting Started</h3>
