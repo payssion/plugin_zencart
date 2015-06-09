@@ -60,7 +60,7 @@ class payssion extends base {
    *
    * @var boolean
    */
-  var $currency_check = false;
+  var $currency_check = true;
   
   private $module_prefix;
   private $pm_id = '';
@@ -223,7 +223,15 @@ class payssion extends base {
    * @return boolean
    */
   function pre_confirmation_check() {
-    return true;
+  		global $order, $messageStack;
+		$CUR = $order->info['currency'];
+		if ($this->currency_check && !in_array($CUR, $this->currency_available)) {
+			$currencies_support = implode($this->currency_available, ', ');
+			$messageStack->add_session('checkout_payment', $this->var['title'] . " doesn't support $CUR currency. Please select $currencies_support currency.", 'error');
+			zen_redirect(zen_href_link(FILENAME_CHECKOUT_PAYMENT, $payment_error_return, 'SSL', true, false));
+			return true;
+		}
+		return false;
   }
   /**
    * Display Credit Card Information on the Checkout Confirmation Page
@@ -262,7 +270,7 @@ class payssion extends base {
   	
   	//payssion accepted currency
   	$CUR = $order->info['currency'];
-  	if ($currency_check && !in_array($CUR, $this->currency_available)) {
+  	if ($this->currency_check && !in_array($CUR, $this->currency_available)) {
   		$CUR = 'USD';
   	}
   	 

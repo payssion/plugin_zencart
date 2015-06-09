@@ -30,7 +30,7 @@
 require_once('payssion.php');
 
 class payssion_qiwi extends payssion {
-	var $currency_available = array ("USD", "EUR", "RUB");
+	var $currency_available = array ("USD");
 	var $description = "QIWI WALLET";
 	
 	function payssion_qiwi() {
