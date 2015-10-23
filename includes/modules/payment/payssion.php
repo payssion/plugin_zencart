@@ -156,7 +156,7 @@ class payssion extends base {
   			if ((MODULE_PAYMENT_PAYSSION_TESTMODE == 'True')) {
   				$test_mode = 'TESTMODE ';
   			}
-  			return "$test_mode$pm_name<div style=\"text-align: center; margin: auto;\"><img src=\"includes/payssion/images/pm/$pm_id.png\" alt=\"Checkout with $pm_name\" title=\"Checkout with $pm_name\" /></div>";
+  			return "$test_mode$pm_name<div style=\"text-align: center; margin: auto;\"><img src=\"payssion/images/pm/$pm_id.png\" alt=\"Checkout with $pm_name\" title=\"Checkout with $pm_name\" /></div>";
   		}
   	} else {
   		return isset($this->var[$name]) ? $this->var[$name] : null;
@@ -293,6 +293,7 @@ class payssion extends base {
   	$description = STORE_NAME . " - Order #$track_id";
   	 
   	$process_button_string = zen_draw_hidden_field('api_key', $api_key) .
+  	zen_draw_hidden_field('source', 'zencart') .
   	zen_draw_hidden_field('pm_id', $this->pm_id) .
   	zen_draw_hidden_field('amount', $amount) .
   	zen_draw_hidden_field('currency', $CUR) .
