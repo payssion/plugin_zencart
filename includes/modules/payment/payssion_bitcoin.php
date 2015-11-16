@@ -24,18 +24,18 @@
  */
 
 /**
- * payssion paysafecard payment method class
+ * payssion bitcoin payment method class
  *
  */
 require_once('payssion.php');
 
-class payssion_paysafecard extends payssion {
-	var $currency_available = array ("EUR|GBP|USD|CHF");
-	var $description = "Paysafecard";
+class payssion_bitcoin extends payssion {
+	var $currency_available = array ("USD");
+	var $description = "Bitcoin";
 	
 	
-	function payssion_paysafecard() {
-		$this->title = "Paysafecard";
+	function payssion_bitcoin() {
+		$this->title = "Bitcoin";
 		parent::__construct();
 	}
 }

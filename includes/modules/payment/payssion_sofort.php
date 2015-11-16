@@ -24,7 +24,7 @@
  */
 
 /**
- * payssion qiwi payment method class
+ * payssion sofort payment method class
  *
  */
 require_once('payssion.php');

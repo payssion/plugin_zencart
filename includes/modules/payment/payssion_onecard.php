@@ -24,7 +24,7 @@
  */
 
 /**
- * payssion cashu payment method class
+ * payssion onecard payment method class
  *
  */
 require_once('payssion.php');

@@ -24,18 +24,18 @@
  */
 
 /**
- * payssion paysafecard payment method class
+ * payssion oxxo payment method class
  *
  */
 require_once('payssion.php');
 
-class payssion_paysafecard extends payssion {
-	var $currency_available = array ("EUR|GBP|USD|CHF");
-	var $description = "Paysafecard";
+class payssion_oxxo_mx extends payssion {
+	var $currency_available = array ("USD");
+	var $description = "Oxxo";
 	
 	
-	function payssion_paysafecard() {
-		$this->title = "Paysafecard";
+	function payssion_oxxo_mx() {
+		$this->title = "Oxxo";
 		parent::__construct();
 	}
 }

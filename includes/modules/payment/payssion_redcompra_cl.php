@@ -24,18 +24,18 @@
  */
 
 /**
- * payssion paysafecard payment method class
+ * payssion bancochile payment method class
  *
  */
 require_once('payssion.php');
 
-class payssion_paysafecard extends payssion {
-	var $currency_available = array ("EUR|GBP|USD|CHF");
-	var $description = "Paysafecard";
+class payssion_redcompra_cl extends payssion {
+	var $currency_available = array ("USD");
+	var $description = "RedCompra Chile";
 	
 	
-	function payssion_paysafecard() {
-		$this->title = "Paysafecard";
+	function payssion_redcompra_cl() {
+		$this->title = "RedCompra Chile";
 		parent::__construct();
 	}
 }

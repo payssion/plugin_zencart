@@ -24,18 +24,18 @@
  */
 
 /**
- * payssion paysafecard payment method class
+ * payssion banamex payment method class
  *
  */
 require_once('payssion.php');
 
-class payssion_paysafecard extends payssion {
-	var $currency_available = array ("EUR|GBP|USD|CHF");
-	var $description = "Paysafecard";
+class payssion_banamex_mx extends payssion {
+	var $currency_available = array ("USD");
+	var $description = "Banamex";
 	
 	
-	function payssion_paysafecard() {
-		$this->title = "Paysafecard";
+	function payssion_banamex_mx() {
+		$this->title = "Banamex";
 		parent::__construct();
 	}
 }

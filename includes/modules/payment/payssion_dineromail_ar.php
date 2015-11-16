@@ -24,18 +24,18 @@
  */
 
 /**
- * payssion paysafecard payment method class
+ * payssion dineromail payment method class
  *
  */
 require_once('payssion.php');
 
-class payssion_paysafecard extends payssion {
-	var $currency_available = array ("EUR|GBP|USD|CHF");
-	var $description = "Paysafecard";
+class payssion_dineromail_ar extends payssion {
+	var $currency_available = array ("USD");
+	var $description = "Dinero Mail - Efectivo Argentinal";
 	
 	
-	function payssion_paysafecard() {
-		$this->title = "Paysafecard";
+	function payssion_dineromail_ar() {
+		$this->title = "Dinero Mail - Efectivo Argentinal";
 		parent::__construct();
 	}
 }

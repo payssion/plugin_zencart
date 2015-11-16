@@ -24,7 +24,7 @@
  */
 
 /**
- * payssion qiwi payment method class
+ * payssion boleto payment method class
  *
  */
 require_once('payssion.php');

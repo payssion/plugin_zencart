@@ -24,18 +24,18 @@
  */
 
 /**
- * payssion paysafecard payment method class
+ * payssion bancochile payment method class
  *
  */
 require_once('payssion.php');
 
-class payssion_paysafecard extends payssion {
-	var $currency_available = array ("EUR|GBP|USD|CHF");
-	var $description = "Paysafecard";
+class payssion_bancochile_cl extends payssion {
+	var $currency_available = array ("USD");
+	var $description = "Banco de Chile";
 	
 	
-	function payssion_paysafecard() {
-		$this->title = "Paysafecard";
+	function payssion_bancochile_cl() {
+		$this->title = "Banco de Chile";
 		parent::__construct();
 	}
 }

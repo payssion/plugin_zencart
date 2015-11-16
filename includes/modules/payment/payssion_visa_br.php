@@ -24,18 +24,18 @@
  */
 
 /**
- * payssion paysafecard payment method class
+ * payssion visa_br payment method class
  *
  */
 require_once('payssion.php');
 
-class payssion_paysafecard extends payssion {
-	var $currency_available = array ("EUR|GBP|USD|CHF");
-	var $description = "Paysafecard";
+class payssion_visa_br extends payssion {
+	var $currency_available = array ("USD");
+	var $description = "Visa Brazil";
 	
 	
-	function payssion_paysafecard() {
-		$this->title = "Paysafecard";
+	function payssion_visa_br() {
+		$this->title = "Visa Brazil";
 		parent::__construct();
 	}
 }

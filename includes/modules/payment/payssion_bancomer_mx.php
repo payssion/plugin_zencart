@@ -24,18 +24,18 @@
  */
 
 /**
- * payssion paysafecard payment method class
+ * payssion bancomer payment method class
  *
  */
 require_once('payssion.php');
 
-class payssion_paysafecard extends payssion {
-	var $currency_available = array ("EUR|GBP|USD|CHF");
-	var $description = "Paysafecard";
+class payssion_bancomer_mx extends payssion {
+	var $currency_available = array ("USD");
+	var $description = "Bancomer(BBVA)";
 	
 	
-	function payssion_paysafecard() {
-		$this->title = "Paysafecard";
+	function payssion_banamex_mx() {
+		$this->title = "Bancomer(BBVA)";
 		parent::__construct();
 	}
 }

@@ -60,7 +60,7 @@ class payssion extends base {
    *
    * @var boolean
    */
-  var $currency_check = true;
+  var $currency_check = false;
   
   private $module_prefix;
   private $pm_id = '';

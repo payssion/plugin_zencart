@@ -24,18 +24,18 @@
  */
 
 /**
- * payssion paysafecard payment method class
+ * payssion hiper payment method class
  *
  */
 require_once('payssion.php');
 
-class payssion_paysafecard extends payssion {
-	var $currency_available = array ("EUR|GBP|USD|CHF");
-	var $description = "Paysafecard";
+class payssion_hipercard_br extends payssion {
+	var $currency_available = array ("USD");
+	var $description = "Hipercard Brazil";
 	
 	
-	function payssion_paysafecard() {
-		$this->title = "Paysafecard";
+	function payssion_hipercard_br() {
+		$this->title = "Hipercard Brazil";
 		parent::__construct();
 	}
 }
