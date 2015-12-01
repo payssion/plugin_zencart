@@ -59,7 +59,7 @@ if (payssion::isValidNotify()) {
 	$orders_id = $_POST['track_id'];
 	$db->Execute("update ". TABLE_ORDERS. " set orders_status = " . $status_id . " where orders_id = ". intval($orders_id));
 } else {
-	header('HTTP/1.1 500 Internal Server Error');
+	header('HTTP/1.0 406 Not Acceptable');
 	echo "failed to check notify_sig";
 }
 
