@@ -278,7 +278,8 @@ class payssion extends base {
   	
   	$payer_name = $order->customer['firstname'] . $order->customer['lastname'];
   	$email = $order->customer['email_address'];
-  	$amount = number_format($order->info['total'], 2, '.', '');
+  	$total = $order->info['total'] * $currencies->get_value($CUR);
+  	$amount = number_format($total, 2, '.', '');
   	$track_id = $_SESSION['orders_id'];
   	$sub_track_id = '';
   	$api_str = implode('|', array(
