@@ -4,7 +4,7 @@ Payssion Zencart extension
 <h3>Getting Started</h3>
 
 <h4>Installation</h4>
-Upload the `payssion` folder to the ZenCart directory on your server.
+Upload all files to the ZenCart root directory on your server.
 
 <h4>Setup</h4>
 
