@@ -305,7 +305,7 @@ class payssion extends base {
   	zen_draw_hidden_field('sub_track_id', $sub_track_id) .
   	zen_draw_hidden_field('api_sig', $api_sig) .
   	zen_draw_hidden_field('language', 'en') .
-  	zen_draw_hidden_field('notify_url', zen_href_link('payssion_notify.php', '', 'SSL', false, false, true)).
+  	zen_draw_hidden_field('notify_url', zen_href_link('payssion_notify.php', '', 'SSL', false, false)).
   	zen_draw_hidden_field('success_url', zen_href_link(FILENAME_CHECKOUT_PROCESS, '', 'SSL')) .
   	zen_draw_hidden_field('fail_url', zen_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL')) .
   	zen_draw_hidden_field('country', $order->customer['country']['iso_code_2']);
