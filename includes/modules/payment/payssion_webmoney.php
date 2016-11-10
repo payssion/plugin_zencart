@@ -32,7 +32,7 @@ require_once('payssion.php');
 class payssion_webmoney extends payssion {
 	var $description = "WebMoney";
 	
-	function payssion_sofort() {
+	function payssion_webmoney() {
 		$this->title = "WebMoney";
 		parent::__construct();
 	}
