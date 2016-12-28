@@ -30,10 +30,10 @@
 require_once('payssion.php');
 
 class payssion_eps_at extends payssion {
-	var $description = "EPS";
+	var $description = "EPS Online-Überweisung";
 	
 	function payssion_eps_at() {
-		$this->title = "EPS";
+		$this->title = "EPS Online-Überweisung";
 		parent::__construct();
 	}
 }
