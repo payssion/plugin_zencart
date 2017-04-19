@@ -32,7 +32,7 @@ require_once('payssion.php');
 class payssion_enets_sg extends payssion {
 	var $description = "eNets";
 	
-	function payssion_paysafecard() {
+	function payssion_enets_sg() {
 		$this->title = "eNets";
 		parent::__construct();
 	}

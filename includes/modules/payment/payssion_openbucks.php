@@ -33,7 +33,7 @@ class payssion_openbucks extends payssion {
 	var $currency_available = array ("USD");
 	var $description = "OpenBucks";
 	
-	function payssion_onecard() {
+	function payssion_openbucks() {
 		$this->title = "OpenBucks";
 		parent::__construct();
 	}

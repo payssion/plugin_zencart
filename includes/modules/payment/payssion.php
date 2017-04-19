@@ -156,7 +156,7 @@ class payssion extends base {
   			if ((MODULE_PAYMENT_PAYSSION_TESTMODE == 'True')) {
   				$test_mode = 'TESTMODE ';
   			}
-  			return "$test_mode$pm_name<div style=\"text-align: center; margin: auto;\"><img src=\"payssion/images/pm/$pm_id.png\" alt=\"Checkout with $pm_name\" title=\"Checkout with $pm_name\" /></div>";
+  			return "$test_mode$pm_name<div style=\"text-align: center; margin: auto;\"><img src=\"payssion/images/pm/$pm_id.png\" alt=\"Checkout with $pm_name\" title=\"Checkout with $pm_name\" height=\"23\" /></div>";
   		}
   	} else {
   		return isset($this->var[$name]) ? $this->var[$name] : null;

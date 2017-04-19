@@ -33,7 +33,7 @@ class payssion_neosurf extends payssion {
 	var $currency_available = array ("USD");
 	var $description = "Neosurf";
 	
-	function payssion_onecard() {
+	function payssion_neosurf() {
 		$this->title = "Neosurf";
 		parent::__construct();
 	}
