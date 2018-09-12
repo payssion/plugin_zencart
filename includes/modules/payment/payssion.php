@@ -275,7 +275,7 @@ class payssion extends base {
   	 
   	$api_key = MODULE_PAYMENT_PAYSSION_API_KEY;
   	
-  	$payer_name = $order->customer['firstname'] . $order->customer['lastname'];
+  	$payer_name = $order->customer['firstname'] . ' ' . $order->customer['lastname'];
   	$email = $order->customer['email_address'];
   	$total = $order->info['total'] * $currencies->get_value($CUR);
   	$amount = number_format($total, 2, '.', '');
