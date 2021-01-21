@@ -59,7 +59,12 @@ if (payssion::isValidNotify()) {
 		$status_id = getStatusId($state);
 		echo "success: $status_id";
 		
-		$db->Execute("update ". TABLE_ORDERS. " set orders_status = " . $status_id . " where orders_id = ". intval($orders_id));	
+		if (function_exists('zen_update_orders_history')) {
+		    $message = 'Payssion Transaction ID: ' . $_POST['transaction_id'];
+		    zen_update_orders_history(intval($orders_id), $message, null, $status_id, 0);
+		} else {
+		    $db->Execute("update ". TABLE_ORDERS. " set orders_status = " . $status_id . " where orders_id = ". intval($orders_id)); 
+		}
 	} else {
 		header('HTTP/1.0 406 Not Acceptable');
 		echo 'Error: order not found';
