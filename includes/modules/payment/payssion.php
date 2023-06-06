@@ -309,7 +309,82 @@ class payssion extends base {
   	zen_draw_hidden_field('fail_url', zen_href_link('account', '', 'SSL')) .
   	zen_draw_hidden_field('country', $order->customer['country']['iso_code_2']);
   	
+  	if ('klarna' == $this->pm_id) {
+  	    $process_button_string .= zen_draw_hidden_field('billing_address', $this->getBillingAddress($order)) .
+  	    zen_draw_hidden_field('order_items', $this->getOrderLines($order));
+  	}
+  	
   	return $process_button_string;
+  }
+  
+  protected function getBillingAddress($order)
+  {
+      $billing_address = array(
+          'city'            => $order->billing['city'],
+          'country'         => $order->billing['country']['iso_code_2'],
+          'email'           => $order->customer['email_address'],
+          'last_name'       => $order->billing['lastname'],
+          'first_name'      => $order->billing['firstname'],
+          'phone'           => $order->customer['telephone'],
+          'postal_code'     => $order->billing['postcode'],
+          'region'          => $this->getStateCode($order->billing),
+          'line1'           => $order->billing['street_address'],
+          'line2'           => $order->billing['suburb'],
+      );
+      
+      return base64_encode(json_encode($billing_address, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+  }
+  
+  /**
+   * Gets state code (zone code) if available,
+   * otherwise gets state name (zone name)
+   *
+   * @param array $address
+   *
+   * @return string
+   */
+  protected function getStateCode($address)
+  {
+      $state = $address['state'];
+      if (isset($address['country_id']) && zen_not_null($address['country_id'])) {
+          if (isset($address['zone_id']) && zen_not_null($address['zone_id'])) {
+              $state = zen_get_zone_code($address['country_id'], $address['zone_id'], $state);
+          }
+      }
+      
+      return $state;
+  }
+  
+  protected function getOrderLines($order)
+  {
+      $items = [];
+      foreach ($order->products as $product) {
+          $tax_rate = $product['tax'];
+          $tax_amount = $product['final_price'] * $tax_rate / 100;
+          $unit_price = $product['final_price'] + $tax_amount;
+          $items[] = array(
+              'type'             => $product['products_virtual'] ? 'digital': 'physical',
+              'name'             => $product['name'],
+              'quantity'         => $product['qty'],
+              'amount'           => $unit_price * $product['qty'],
+              'unit_price'       => $unit_price,
+              'tax_amount'       => $tax_amount,
+              'tax_rate'         => $tax_rate,
+          );
+      }
+      
+      $shipping_fee = $order->info['shipping_cost'];
+      if ($shipping_fee > 0) {
+          $items[] = array(
+              'type'             => 'shipping',
+              'name'             => $order->info['shipping_method'],
+              'quantity'         => 1,
+              'amount'           => $shipping_fee,
+              'unit_price'       => $shipping_fee,
+          );
+      }
+      
+      return base64_encode(json_encode($items, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK));
   }
   /**
    * Store transaction info to the order and process any results that come back from the payment gateway
